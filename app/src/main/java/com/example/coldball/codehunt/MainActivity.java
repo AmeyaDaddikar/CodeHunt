@@ -5,11 +5,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
-import android.widget.FrameLayout;
-
 
 public class MainActivity extends FragmentActivity
         implements MainPage.OnFragmentInteractionListener{
+
+    public static int CURRENT_LOCATION = 0;
 
     @Override
     public void onFragmentInteraction(Uri uri){
@@ -28,7 +28,8 @@ public class MainActivity extends FragmentActivity
             fragment = new MainPage();
 
         fragmentManager.beginTransaction()
-                .add(R.id.fragment_frame,fragment)
+                .add(R.id.fragment_frame,fragment,"HOMEPAGE")
                 .commit();
+
     }
 }
