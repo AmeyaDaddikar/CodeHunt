@@ -1,37 +1,34 @@
 package com.example.coldball.codehunt;
 
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.support.v4.app.FragmentManager;
+import android.widget.FrameLayout;
 
-public class MainActivity extends AppCompatActivity {
-    static Button startButton;
-    static TextView COCname;
-    static ImageView COClogo;
+
+public class MainActivity extends FragmentActivity
+        implements MainPage.OnFragmentInteractionListener{
+
+    @Override
+    public void onFragmentInteraction(Uri uri){
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = fragmentManager.findFragmentById(R.id.fragment_frame);
 
-        startButton = (Button) findViewById(R.id.start_button);
-        COCname  = (TextView) findViewById(R.id.coc_name);
-        COClogo = (ImageView) findViewById(R.id.coc_logo);
+        if(fragment == null)
+            fragment = new MainPage();
 
-        startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                COCname.setVisibility(View.GONE);
-                COClogo.setVisibility(View.GONE);
-                startButton.setVisibility(View.GONE);
-
-            }
-        });
+        fragmentManager.beginTransaction()
+                .add(R.id.fragment_frame,fragment)
+                .commit();
     }
 }
