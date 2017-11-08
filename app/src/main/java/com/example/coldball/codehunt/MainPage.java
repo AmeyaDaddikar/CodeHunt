@@ -1,15 +1,21 @@
 package com.example.coldball.codehunt;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.coldball.codehunt.MainActivity.CURRENT_LOCATION;
+import static com.example.coldball.codehunt.MainActivity.PREFS_NAME;
 
 
 /**
@@ -26,12 +32,14 @@ public class MainPage extends Fragment
     
     private static int counter = 5;
     public Button start_button;
+    SharedPreferences settings;
 
     private OnFragmentInteractionListener mListener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        settings = this.getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
     }
 
@@ -56,6 +64,28 @@ public class MainPage extends Fragment
             Toast.makeText(getContext(), "LET THE GAMES BEGIN!!!!",
                     Toast.LENGTH_SHORT).show();
             //SWITCH FRAGMENT IN MAIN ACTIVITY HERE
+
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putInt("fragment_value", 1);
+            editor.commit();
+
+            FragmentManager fragmentManager = this.getActivity().getSupportFragmentManager();
+            Fragment fragment = fragmentManager.findFragmentById(R.id.fragment_frame);
+
+            if(fragment == null) {
+                //fragment = new MainPage();
+                switch(CURRENT_LOCATION){
+                    case 0 :    fragment = new MainPage();
+                        break;
+                    case 1 :    fragment = new Question1();
+                        break;
+                }
+            }
+
+            fragmentManager.beginTransaction()
+                    .add(R.id.fragment_frame,fragment,"HOMEPAGE")
+                    .commit();
+
         }
     }
 
