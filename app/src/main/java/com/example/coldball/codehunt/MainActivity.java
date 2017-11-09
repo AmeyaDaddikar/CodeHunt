@@ -10,6 +10,15 @@ public class MainActivity extends SingleFragmentActivity {
     public static int CURRENT_LOCATION = 0;
     public static final String PREFS_NAME= "MyPrefsFile";
 
+    public static final String[] QUESTION_LIST = {"defaultext",
+            "QUESTION 1",
+            "QUESTION 2",
+            "QUESTION 3",
+            "QUESTION 4",
+            "QUESTION 5"};
+
+    public static final String[] PASSWORD = {"0","1","2","3","4","5"};
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +29,7 @@ public class MainActivity extends SingleFragmentActivity {
     public Fragment createFragment() {
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         CURRENT_LOCATION = settings.getInt("fragment_value", 0);
+
         switch (CURRENT_LOCATION){
             case 0 : return new MainPage();
             case 1 :

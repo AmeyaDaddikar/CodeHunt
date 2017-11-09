@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="80sp"
+        android:textSize="30sp"
+        android:text="DEFAULT QUESTION"
         android:layout_marginTop="100dp"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,6 +25,7 @@
         <!--
         Question text has to be changed above
         -->
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

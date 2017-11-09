@@ -7,44 +7,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.coldball.codehunt.MainPage">
 
-    <ImageView
-        android:id="@+id/coc_logo"
-        android:layout_width="280dp"
-        android:layout_height="290dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
-        android:layout_marginBottom="30dp"
-        android:alpha="29"
-        android:src="@drawable/coc_logo"/>
-
     <TextView
         android:id="@+id/coc_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/start_button"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/coc_logo"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="12dp"
-        android:textSize="24sp"
-        android:textAlignment="center"
+        android:layout_marginBottom="133dp"
         android:fontFamily="monospace"
+        android:text="@string/COC"
+        android:textAlignment="center"
         android:textColor="@android:color/darker_gray"
-        android:textStyle="bold"
-        android:text="@string/COC"/>
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/start_button"
-        style="@android:style/Widget.Button"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/coc_name"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="12dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:background="@color/background_material_dark"
+        android:layout_marginBottom="192dp"
         android:text="Start"
-        android:padding="15dp"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="34sp"
