@@ -44,6 +44,7 @@ public class MainPage extends Fragment implements  View.OnClickListener{
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_main_page, container, false);
+        settings = getActivity().getSharedPreferences("fragment_value",MODE_PRIVATE);
         start_button = (Button) view.findViewById(R.id.start_button);
         start_button.setOnClickListener(this);
 
