@@ -71,17 +71,8 @@ public class MainPage extends Fragment
 
             FragmentManager fragmentManager = this.getActivity().getSupportFragmentManager();
             Fragment fragment = fragmentManager.findFragmentById(R.id.fragment_frame);
-
-            if(fragment == null) {
-                //fragment = new MainPage();
-                switch(CURRENT_LOCATION){
-                    case 0 :    fragment = new MainPage();
-                        break;
-                    case 1 :    fragment = new Question1();
-                        break;
-                }
-            }
-
+            fragmentManager.beginTransaction().remove(this).commit();
+            fragment = new Question1();
             fragmentManager.beginTransaction()
                     .add(R.id.fragment_frame,fragment,"HOMEPAGE")
                     .commit();
