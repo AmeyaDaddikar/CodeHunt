@@ -22,7 +22,11 @@ public class MainActivity extends SingleFragmentActivity {
         CURRENT_LOCATION = settings.getInt("fragment_value", 0);
         switch (CURRENT_LOCATION){
             case 0 : return new MainPage();
-            case 1 : return new Question();
+            case 1 :
+            case 2 :
+            case 3 :
+            case 4 :
+            case 5 :return new Question();
 
         }
         return null;

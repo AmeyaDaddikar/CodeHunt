@@ -9,7 +9,9 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 /**
@@ -29,6 +31,8 @@ public class Question extends Fragment {
     EditText pass2;
     EditText pass3;
     EditText pass4;
+    TextView mQuestionView;
+    Button mNextButton;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -78,7 +82,19 @@ public class Question extends Fragment {
         pass2 =  rootView.findViewById(R.id.Digit2);
         pass3 =  rootView.findViewById(R.id.Digit3);
         pass4 =  rootView.findViewById(R.id.Digit4);
+        mNextButton = rootView.findViewById(R.id.next_button);
+        mQuestionView = rootView.findViewById(R.id.question_text);
 
+        mNextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pass1.setText("");
+                pass2.setText("");
+                pass3.setText("");
+                pass4.setText("");
+
+            }
+        });
         pass1.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
