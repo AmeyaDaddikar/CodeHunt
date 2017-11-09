@@ -5,4 +5,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="Enter_pass_text">Enter password:</string>
     <string name="next_button_string">Open Sesame!</string>
+    <string name="question_one_text">Question 1</string>>
 </resources>

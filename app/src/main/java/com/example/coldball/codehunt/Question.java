@@ -1,17 +1,23 @@
 package com.example.coldball.codehunt;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.coldball.codehunt.MainActivity.PREFS_NAME;
 
 
 /**
@@ -27,6 +33,15 @@ public class Question extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    public static final String[] PASSWORD = {"0000","2807","0911","2810","0105","4","5"};
+    public static final String[] QUESTION_LIST = {
+            "QUESTION 1",
+            "QUESTION 2",
+            "QUESTION 3",
+            "QUESTION 4",
+            "QUESTION 5"};
+    private int CURRENT_LOCATION ;
+    SharedPreferences settings;
     EditText pass1;
     EditText pass2;
     EditText pass3;
@@ -66,11 +81,13 @@ public class Question extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
     }
 
     @Override
@@ -78,21 +95,58 @@ public class Question extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_question1, container, false);
+
         pass1 =  rootView.findViewById(R.id.Digit1);
         pass2 =  rootView.findViewById(R.id.Digit2);
         pass3 =  rootView.findViewById(R.id.Digit3);
         pass4 =  rootView.findViewById(R.id.Digit4);
         mNextButton = rootView.findViewById(R.id.next_button);
         mQuestionView = rootView.findViewById(R.id.question_text);
+        settings = this.getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        CURRENT_LOCATION =settings.getInt("fragment_value",1);
+        mQuestionView.setText(QUESTION_LIST[CURRENT_LOCATION - 1]);
 
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String input = "";
+                try {
+                    input = pass1.getText().toString() + pass2.getText().toString() + pass3.getText().toString() + pass4.getText().toString();
+                    Log.i("QUESTION", input);
+
+                }catch (NullPointerException e){
+                    Log.i("QUESTION", "Didnt work obviously");
+                }
+                if(input.compareTo(PASSWORD[1]) == 0){
+                    mQuestionView.setText(QUESTION_LIST[1]);
+                    CURRENT_LOCATION = 2;
+                }
+                else if(input.compareTo(PASSWORD[2]) == 0){
+                    mQuestionView.setText(QUESTION_LIST[2]);
+                    CURRENT_LOCATION = 3;
+                }
+                else if(input.compareTo(PASSWORD[3]) == 0){
+                    mQuestionView.setText(QUESTION_LIST[3]);
+                    CURRENT_LOCATION = 4;
+                }
+                else if(input.compareTo(PASSWORD[4]) == 0){
+                    mQuestionView.setText(QUESTION_LIST[4]);
+                    CURRENT_LOCATION = 5;
+                }
+                else if(input.compareTo(PASSWORD[0]) == 0){
+                    mQuestionView.setText(QUESTION_LIST[0]);
+                }
+                else{
+                    Toast.makeText(getActivity().getApplicationContext(), "Incorrect password!",Toast.LENGTH_SHORT).show();
+                }
+                SharedPreferences.Editor editor =settings.edit();
+                editor.putInt("fragment_value",CURRENT_LOCATION);
+                editor.commit();
                 pass1.setText("");
                 pass2.setText("");
                 pass3.setText("");
                 pass4.setText("");
-
+                pass1.requestFocus();
             }
         });
         pass1.addTextChangedListener(new TextWatcher() {

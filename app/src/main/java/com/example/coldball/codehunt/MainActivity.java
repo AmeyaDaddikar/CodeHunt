@@ -10,15 +10,6 @@ public class MainActivity extends SingleFragmentActivity {
     public static int CURRENT_LOCATION = 0;
     public static final String PREFS_NAME= "MyPrefsFile";
 
-    public static final String[] QUESTION_LIST = {"defaultext",
-            "QUESTION 1",
-            "QUESTION 2",
-            "QUESTION 3",
-            "QUESTION 4",
-            "QUESTION 5"};
-
-    public static final String[] PASSWORD = {"0","1","2","3","4","5"};
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
