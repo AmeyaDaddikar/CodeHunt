@@ -3,19 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.coldball.codehunt.Question1">
+    tools:context="com.example.coldball.codehunt.Question">
 
     <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/question_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="80sp"
+        android:layout_marginTop="100dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center">
-        <TextView
-            android:id="@+id/question_text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"/>
+
+        <!--
+        Question text has to be changed above
+        -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -32,28 +39,29 @@
                 android:id="@+id/Digit1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:digits="1"
+                android:maxLength="1"
                 android:inputType="number" />
 
             <EditText
                 android:id="@+id/Digit2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:digits="1"
+                android:maxLength="1"
                 android:inputType="number" />
 
             <EditText
                 android:id="@+id/Digit3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:digits="1"
+                android:maxLength="1"
                 android:inputType="number" />
 
             <EditText
                 android:id="@+id/Digit4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:digits="1"
+                android:maxLength="1"
+
                 android:inputType="number" />
 
         </LinearLayout>

@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import static android.content.Context.MODE_PRIVATE;
-import static com.example.coldball.codehunt.MainActivity.CURRENT_LOCATION;
 import static com.example.coldball.codehunt.MainActivity.PREFS_NAME;
 
 
@@ -71,7 +69,7 @@ public class MainPage extends Fragment implements  View.OnClickListener{
             FragmentManager fragmentManager = this.getActivity().getSupportFragmentManager();
             Fragment fragment = fragmentManager.findFragmentById(R.id.fragment_frame);
             fragmentManager.beginTransaction().remove(this).commit();
-            fragment = new Question1();
+            fragment = new Question();
             fragmentManager.beginTransaction()
                     .add(R.id.fragment_frame,fragment,"HOMEPAGE")
                     .commit();

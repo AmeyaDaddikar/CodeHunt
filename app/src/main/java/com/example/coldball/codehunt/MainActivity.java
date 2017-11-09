@@ -1,12 +1,9 @@
 package com.example.coldball.codehunt;
 
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 
 public class MainActivity extends SingleFragmentActivity {
 
@@ -25,7 +22,7 @@ public class MainActivity extends SingleFragmentActivity {
         CURRENT_LOCATION = settings.getInt("fragment_value", 0);
         switch (CURRENT_LOCATION){
             case 0 : return new MainPage();
-            case 1 : return new Question1();
+            case 1 : return new Question();
 
         }
         return null;
