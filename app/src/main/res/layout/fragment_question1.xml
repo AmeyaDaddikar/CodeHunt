@@ -44,7 +44,9 @@
                 android:layout_height="wrap_content"
                 android:maxLength="1"
                 android:textSize="40sp"
-                android:inputType="number" />
+                android:inputType="number"
+                android:gravity="center"
+                />
 
             <EditText
                 android:id="@+id/Digit2"
@@ -52,7 +54,9 @@
                 android:layout_height="wrap_content"
                 android:maxLength="1"
                 android:textSize="40sp"
-                android:inputType="number" />
+                android:inputType="number"
+                android:gravity="center"
+                />
 
             <EditText
                 android:id="@+id/Digit3"
@@ -60,7 +64,9 @@
                 android:layout_height="wrap_content"
                 android:maxLength="1"
                 android:textSize="40sp"
-                android:inputType="number" />
+                android:inputType="number"
+                android:gravity="center"
+                />
 
             <EditText
                 android:id="@+id/Digit4"
@@ -68,7 +74,9 @@
                 android:layout_height="wrap_content"
                 android:maxLength="1"
                 android:textSize="40sp"
-                android:inputType="number" />
+                android:inputType="number"
+                android:gravity="center"
+                />
 
         </LinearLayout>
         <Button

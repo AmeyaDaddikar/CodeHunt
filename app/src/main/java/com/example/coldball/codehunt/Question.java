@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.text.Editable;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -204,6 +206,7 @@ public class Question extends Fragment {
 
             }
         });
+
         pass3.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -227,6 +230,8 @@ public class Question extends Fragment {
 
             }
         });
+
+
         pass4.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -245,8 +250,12 @@ public class Question extends Fragment {
 
             }
         });
+
         return rootView;
+
+
     }
+
     void fallBackToast(int ploc, int loc){
         if(ploc>loc)
             Toast.makeText(getActivity().getApplicationContext(),R.string.fallback_message, Toast.LENGTH_SHORT).show();
