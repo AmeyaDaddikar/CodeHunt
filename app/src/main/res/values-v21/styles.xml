@@ -3,14 +3,17 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@android:color/darker_gray</item>
-        <item name="colorPrimaryDark">?android:attr/colorBackground</item>
-        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:colorForeground">@color/colorAccent</item>
-        <item name="android:navigationBarColor">@color/colorPrimary</item>
+        <item name="android:navigationBarColor">@color/colorAccent</item>
         <item name="android:textColorPrimary">@color/colorAccent</item>
         <item name="android:statusBarColor">?android:attr/colorControlActivated</item>
-        <item name="android:textColorPrimaryInverse">@android:color/transparent</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:textColorPrimaryInverse">@color/colorAccent</item>
+        <item name="android:windowBackground">@android:color/background_dark</item>
+        <item name="android:textColorSecondary">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/colorPrimary</item>
+        <item name="android:textColorSecondaryInverse">@android:color/darker_gray</item>
     </style>
 </resources>

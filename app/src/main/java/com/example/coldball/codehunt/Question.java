@@ -34,13 +34,13 @@ public class Question extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    public static final String[] PASSWORD = {"0000","2807","0911","2810","0105","7777","5"};
+    public static final String[] PASSWORD = {"0000","2807","0911","2810","0105","7581","5"};
     public static final String[] QUESTION_LIST = {
             "QUESTION 1",
             "QUESTION 2",
             "QUESTION 3",
             "QUESTION 4",
-            "QUESTION 5"};
+            "The Final Challenge"};
     private int CURRENT_LOCATION ;
     int i;
     SharedPreferences settings;
@@ -116,38 +116,25 @@ public class Question extends Fragment {
                 }catch (NullPointerException e){
                     Log.i("QUESTION", "Didnt work obviously");
                 }
-                if(input.compareTo(PASSWORD[1]) == 0){
-                    mQuestionView.setText(QUESTION_LIST[1]);
-                    fallBackToast(CURRENT_LOCATION,2);
-                    CURRENT_LOCATION = 2;
-                }
-                else if(input.compareTo(PASSWORD[2]) == 0){
-                    mQuestionView.setText(QUESTION_LIST[2]);
-                    fallBackToast(CURRENT_LOCATION,3);
-                    CURRENT_LOCATION = 3;
-                }
-                else if(input.compareTo(PASSWORD[3]) == 0){
-                    mQuestionView.setText(QUESTION_LIST[3]);
-                    fallBackToast(CURRENT_LOCATION,4);
-                    CURRENT_LOCATION = 4;
-                }
-                else if(input.compareTo(PASSWORD[4]) == 0){
-                    mQuestionView.setText(QUESTION_LIST[4]);
-                    fallBackToast(CURRENT_LOCATION,5);
-                    CURRENT_LOCATION = 5;
-                }
-                else if(input.compareTo(PASSWORD[0]) == 0){
-                    mQuestionView.setText(QUESTION_LIST[0]);
-                }
-                else if(input.compareTo(PASSWORD[5]) == 0){
-                    //CURRENT_LOCATION = 6;                              //Don't want to fix this as we can'st go back to Question fragment
-                    FragmentManager fm = getActivity().getSupportFragmentManager();
-                    fm.beginTransaction()
-                            .remove(Question.this)
-                            .commit();
-                    fm.beginTransaction()
-                            .add(R.id.fragment_frame, new GoodbyeFragment(), "HOMEPAGE")
-                            .commit();
+/*                mQuestionView.setText(QUESTION_LIST[1]);
+                fallBackToast(CURRENT_LOCATION,2);
+                CURRENT_LOCATION = 2;
+*/
+                if(input.compareTo(PASSWORD[CURRENT_LOCATION]) == 0){
+
+                    if(CURRENT_LOCATION == 5)
+                    {
+                        FragmentManager fm = getActivity().getSupportFragmentManager();
+                        fm.beginTransaction()
+                                .remove(Question.this)
+                                .commit();
+                        fm.beginTransaction()
+                                .add(R.id.fragment_frame, new GoodbyeFragment(), "HOMEPAGE")
+                                .commit();
+                    }
+                    else
+                        mQuestionView.setText(QUESTION_LIST[CURRENT_LOCATION++]);
+                    //fallBackToast(CURRENT_LOCATION,CURRENT_LOCATION);
 
                 }
                 else{
