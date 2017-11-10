@@ -42,7 +42,7 @@ public class Question extends Fragment {
             "QUESTION 2",
             "QUESTION 3",
             "QUESTION 4",
-            "The Final Challenge"};
+            "The Final Problem"};
     private int CURRENT_LOCATION ;
     int i;
     SharedPreferences settings;

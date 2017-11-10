@@ -74,7 +74,7 @@ public class GoodbyeFragment extends Fragment {
         response_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/CommunityOfCoders/"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/forms/d/e/1FAIpQLSeQWBF_X0LqXpNwqDZeuD-VCAkKd1rCKnTSsa1cTQoQXkDm0Q/viewform"));
                 startActivity(browserIntent);
             }
         });
