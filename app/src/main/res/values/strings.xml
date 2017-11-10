@@ -9,7 +9,14 @@
     <string name="excess_message">Lady Fortune turns a blind eye</string>
     <string name="excess_message2">WARNING! Your actions may have consequences</string>
     <string name="fallback_message">Go to previous location for verification!</string>
-
+    <string name="join_coc_message">Hope you enjoyed CodeHunt.<br/>
+    There were clues and references all around the questions, <br/>
+    you can ask us for the <i>behind the scenes</i> codes, or you can try decompiling this app.<br/>
+    (If you had decompiled the app in the beginning, you could have won the competition in 1 minute!!)<br/>
+        If this event created an incentive within you towards liking coding, do approach us!!! We would be happy to
+        share even more about the world of development, competitive coding, and a heck lot more !!
+    </string>
+    <string name="farewell">Liked the event? Hated it? \n Whats your opinion?</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
