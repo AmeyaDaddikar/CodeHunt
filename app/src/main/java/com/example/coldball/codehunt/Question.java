@@ -41,6 +41,7 @@ public class Question extends Fragment {
             "QUESTION 4",
             "QUESTION 5"};
     private int CURRENT_LOCATION ;
+    int i;
     SharedPreferences settings;
     EditText pass1;
     EditText pass2;
@@ -100,6 +101,7 @@ public class Question extends Fragment {
         pass2 =  rootView.findViewById(R.id.Digit2);
         pass3 =  rootView.findViewById(R.id.Digit3);
         pass4 =  rootView.findViewById(R.id.Digit4);
+        i = 0;
         mNextButton = rootView.findViewById(R.id.next_button);
         mQuestionView = rootView.findViewById(R.id.question_text);
         settings = this.getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
@@ -119,25 +121,39 @@ public class Question extends Fragment {
                 }
                 if(input.compareTo(PASSWORD[1]) == 0){
                     mQuestionView.setText(QUESTION_LIST[1]);
+                    fallBackToast(CURRENT_LOCATION,2);
                     CURRENT_LOCATION = 2;
                 }
                 else if(input.compareTo(PASSWORD[2]) == 0){
                     mQuestionView.setText(QUESTION_LIST[2]);
+                    fallBackToast(CURRENT_LOCATION,3);
                     CURRENT_LOCATION = 3;
                 }
                 else if(input.compareTo(PASSWORD[3]) == 0){
                     mQuestionView.setText(QUESTION_LIST[3]);
+                    fallBackToast(CURRENT_LOCATION,4);
                     CURRENT_LOCATION = 4;
                 }
                 else if(input.compareTo(PASSWORD[4]) == 0){
                     mQuestionView.setText(QUESTION_LIST[4]);
+                    fallBackToast(CURRENT_LOCATION,5);
                     CURRENT_LOCATION = 5;
                 }
                 else if(input.compareTo(PASSWORD[0]) == 0){
                     mQuestionView.setText(QUESTION_LIST[0]);
                 }
                 else{
-                    Toast.makeText(getActivity().getApplicationContext(), "Incorrect password!",Toast.LENGTH_SHORT).show();
+                    if (i >= 5) {
+                        Toast.makeText(getActivity().getApplicationContext(),R.string.excess_message, Toast.LENGTH_SHORT).show();
+                    }
+                    if (i >= 8) {
+                        Toast.makeText(getActivity().getApplicationContext(),R.string.excess_message2, Toast.LENGTH_SHORT).show();
+                        i = 0;
+                    }
+                    else{
+                        Toast.makeText(getActivity().getApplicationContext(), "Incorrect password!",Toast.LENGTH_SHORT).show();
+                    }
+                    i++;
                 }
                 SharedPreferences.Editor editor =settings.edit();
                 editor.putInt("fragment_value",CURRENT_LOCATION);
@@ -149,6 +165,7 @@ public class Question extends Fragment {
                 pass1.requestFocus();
             }
         });
+
         pass1.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -235,7 +252,10 @@ public class Question extends Fragment {
         });
         return rootView;
     }
-
+    void fallBackToast(int ploc, int loc){
+        if(ploc>loc)
+            Toast.makeText(getActivity().getApplicationContext(),R.string.fallback_message, Toast.LENGTH_SHORT).show();
+    }
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
