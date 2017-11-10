@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.coldball.codehunt.MainPage">
 
@@ -15,10 +14,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="79dp"
-        android:fontFamily="monospace"
+        android:fontFamily="sans-serif"
         android:text="@string/COC"
         android:textAlignment="center"
-        android:textAllCaps="true"
+        android:textAllCaps="false"
         android:textColor="@android:color/darker_gray"
         android:textSize="48sp"
         android:textStyle="bold" />
