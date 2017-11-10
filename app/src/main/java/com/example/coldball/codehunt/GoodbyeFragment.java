@@ -1,79 +1,72 @@
 package com.example.coldball.codehunt;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
-
-import static android.content.Context.MODE_PRIVATE;
-import static com.example.coldball.codehunt.MainActivity.PREFS_NAME;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link MainPage.OnFragmentInteractionListener} interface
+ * {@link GoodbyeFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- *
+ * Use the {@link GoodbyeFragment#newInstance} factory method to
+ * create an instance of this fragment.
  */
-public class MainPage extends Fragment implements  View.OnClickListener{
+public class GoodbyeFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    
-    private static int counter = 5;
-    public Button start_button;
-    SharedPreferences settings;
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    public GoodbyeFragment() {
+        // Required empty public constructor
+    }
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment GoodbyeFragment.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static GoodbyeFragment newInstance(String param1, String param2) {
+        GoodbyeFragment fragment = new GoodbyeFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View rootView = inflater.inflate(R.layout.fragment_goodbye, container, false);
 
-        View view = inflater.inflate(R.layout.fragment_main_page, container, false);
-        settings = getActivity().getSharedPreferences("fragment_value",MODE_PRIVATE);
-        start_button = (Button) view.findViewById(R.id.start_button);
-        start_button.setOnClickListener(this);
-
-        return view;
-    }
-
-    @Override
-    public void onClick(View view) {
-        if(counter > 0)
-            Toast.makeText(getContext(),
-                    "You are " + String.valueOf(counter--) + " steps away from starting codehunt",
-                    Toast.LENGTH_SHORT).show();
-        else{
-            Toast.makeText(getContext(), "LET THE GAMES BEGIN!!!!",
-                    Toast.LENGTH_SHORT).show();
-            //SWITCH FRAGMENT IN MAIN ACTIVITY HERE
-
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putInt("fragment_value", 1);
-            editor.commit();
-
-            FragmentManager fragmentManager = this.getActivity().getSupportFragmentManager();
-            fragmentManager.beginTransaction().remove(this).commit();
-            Fragment fragment = new Question();
-            fragmentManager.beginTransaction()
-                    .add(R.id.fragment_frame,fragment,"HOMEPAGE")
-                    .commit();
-
-        }
+        return rootView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -114,5 +107,4 @@ public class MainPage extends Fragment implements  View.OnClickListener{
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-
 }

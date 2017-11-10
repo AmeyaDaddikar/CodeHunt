@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -33,7 +34,7 @@ public class Question extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    public static final String[] PASSWORD = {"0000","2807","0911","2810","0105","4","5"};
+    public static final String[] PASSWORD = {"0000","2807","0911","2810","0105","7777","5"};
     public static final String[] QUESTION_LIST = {
             "QUESTION 1",
             "QUESTION 2",
@@ -81,10 +82,6 @@ public class Question extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
-
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -142,11 +139,22 @@ public class Question extends Fragment {
                 else if(input.compareTo(PASSWORD[0]) == 0){
                     mQuestionView.setText(QUESTION_LIST[0]);
                 }
+                else if(input.compareTo(PASSWORD[5]) == 0){
+                    //CURRENT_LOCATION = 6;                              //Don't want to fix this as we can'st go back to Question fragment
+                    FragmentManager fm = getActivity().getSupportFragmentManager();
+                    fm.beginTransaction()
+                            .remove(Question.this)
+                            .commit();
+                    fm.beginTransaction()
+                            .add(R.id.fragment_frame, new GoodbyeFragment(), "HOMEPAGE")
+                            .commit();
+
+                }
                 else{
-                    if (i >= 5) {
+                    if (i == 2) {
                         Toast.makeText(getActivity().getApplicationContext(),R.string.excess_message, Toast.LENGTH_SHORT).show();
                     }
-                    if (i >= 8) {
+                    if (i == 4) {
                         Toast.makeText(getActivity().getApplicationContext(),R.string.excess_message2, Toast.LENGTH_SHORT).show();
                         i = 0;
                     }

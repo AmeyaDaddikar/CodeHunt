@@ -8,5 +8,8 @@
     <string name="question_one_text">Question 1</string>
     <string name="excess_message">Lady Fortune turns a blind eye</string>
     <string name="excess_message2">WARNING! Your actions may have consequences</string>
-    <string name="fallback_message">An unlucky guess has forced you a step back!</string>
+    <string name="fallback_message">Go to previous location for verification!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

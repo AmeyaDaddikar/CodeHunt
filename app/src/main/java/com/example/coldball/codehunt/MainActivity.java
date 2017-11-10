@@ -28,6 +28,7 @@ public class MainActivity extends SingleFragmentActivity {
             case 3 :
             case 4 :
             case 5 :return new Question();
+            case 6 :return new GoodbyeFragment();
 
         }
         return null;
