@@ -38,11 +38,11 @@ public class Question extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     public static final String[] PASSWORD = {"0000","2807","0911","2810","0105","7581","5"};
     public static final String[] QUESTION_LIST = {
-            "QUESTION 1",
-            "QUESTION 2",
-            "QUESTION 3",
-            "QUESTION 4",
-            "The Final Problem"};
+            "Magic Arrays",
+            "The Cipher",
+            "Crossword",
+            "Pictionary",
+            "The Code \'Hunt\'"};
     private int CURRENT_LOCATION ;
     int i;
     SharedPreferences settings;
