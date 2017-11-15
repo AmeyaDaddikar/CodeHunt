@@ -12,6 +12,8 @@ The competition has teams of two students working together, to solve a given set
 ## About the App
 The CodeHunt uses an Android Application built on the recently released [Android Studio 3.0](https://developer.android.com/studio/index.html). The main objective of the app is to keep a track of the progress of the participating team on the app itself. The app replaces the previously used chit-based system, which was used to ensure that the teams follow the sequence of the questions pre-determined, and also ensure that the particiapnts don't skip  any questions.
 
+<img src="https://github.com/AmeyaDaddikar/CodeHunt/blob/master/screenshot2.png" width = "300px">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/AmeyaDaddikar/CodeHunt/blob/master/screenshot1.png" width = "300px">
+
 ### The basic working of the App
 1. The team arrives at a location.
 2. The volunteer sees the team's app, and verifies if the team is supposed to be on that location. If not, then the team is sent back.
