@@ -35,7 +35,7 @@ Unfortunately no. Due to the short time constraint on the app development, we ha
 We, at the Community Of Coders, believe that a strong community helps its participants to learn and explore the new technologies and techniques. We too, are learning at the moment, and the journey of developing this was taught us a lot. Projects like these really expose you to a lot of new stuff, with challenges set throughout the way. We encourage you to take upon yourself such challenges, learn something new, create something new. Hope to see you soon, as a shinning member of the Community of Coders. ; ) 
 
 #### To-do list:
-[ ] Add a leader board to display top 5 teams
-[ ] Add online synchronization of leader board via Firebase
-[ ] Add a navbar which disables fragments which have not been unlocked yet
-[ ] FaQ's activity
+[  ] Add a leader board to display top 5 teams
+[  ] Add online synchronization of leader board via Firebase
+[  ] Add a navbar which disables fragments which have not been unlocked yet
+[  ] FaQ's activity
