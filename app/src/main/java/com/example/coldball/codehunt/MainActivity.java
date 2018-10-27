@@ -14,6 +14,9 @@ public class MainActivity extends SingleFragmentActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        settings.edit().putString("CTF2018", "http://coldball.pythonanywhere.com/github/profile").apply();
     }
 
     @Override

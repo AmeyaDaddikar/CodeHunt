@@ -39,3 +39,5 @@ We, at the Community Of Coders, believe that a strong community helps its partic
 - [ ] Add online synchronization of leader board via Firebase
 - [ ] Add a navbar which disables fragments which have not been unlocked yet
 - [ ] FaQ's activity
+
+## The Flag clue has been Shared ; )
