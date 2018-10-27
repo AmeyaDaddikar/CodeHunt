@@ -16,7 +16,7 @@ public class MainActivity extends SingleFragmentActivity {
         setContentView(R.layout.activity_main);
 
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        settings.edit().putString("CTF2018", "http://coldball.pythonanywhere.com/github/profile").apply();
+        settings.edit().putString("CTF2018", "http://coldball.pythonanywhere.com/github/AmeyaDaddikar").apply();
     }
 
     @Override
